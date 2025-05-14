@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="قائمة طعام مطعم وكوفي شوب Elite – أصناف مميزة من الشوربات، السلطات، المشاوي، المشروبات والحلويات.">
+  <title>مطعم وكوفي شوب Elite</title>
+  <link rel="stylesheet" href="./style1.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+  <div id="language-toggle">
+    <button onclick="toggleLanguage()">English / عربي</button>
+  </div>
+
+  <div id="popup">
+    <div id="popup-content">
+      <span id="close-btn" onclick="closePopup()">&times;</span>
+      <img id="popup-img" src="" alt="صورة">
+    </div>
+  </div>
+
+  <header>
+    <h2 data-ar="أهلا وسهلا بكم في مطعم وكوفي شوب" data-en="Welcome to Elite Restaurant & Coffee Shop">أهلا وسهلا بكم في
+      مطعم وكوفي شوب</h2>
+    <img src="./imges/elite-removebg.png" alt="Elite Logo" class="logo">
+  </header>
+
+  <div class="search-bar">
+    <input type="text" id="searchInput" placeholder="ابحث عن صنف..." onkeyup="filterItems()">
+  </div>
+
+  <section class="menu" id="menu-section">
+    <div class="menu-item" data-keywords="افطارات breakfast">
+      <p data-ar="افطارات" data-en="Breakfast">افطارات</p>
+      <img src="./imges/iftar.jpg" alt="افطارات" />
+      <p class="caption">صباحك غير مع فطور ELITE الشهي 🍳</p>
+
+      <button onclick="showItems('iftarat')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+    <div class="menu-item" data-keywords="رئيسية main course">
+      <p data-ar="وجبات رئيسية" data-en="Main Courses">وجبات رئيسية</p>
+      <img src="./imges/mainCourse.jpg" alt="رئيسية" />
+      <p class="caption">غداء ولا أطيب… أجواء ملكية من مطبخ ELITE 🍽️👑</p>
+
+      <button onclick="showItems('mainCourse')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+    <div class="menu-item" data-keywords="ايطالية pasta pizza">
+      <p data-ar="وجبات ايطالية" data-en="Italian Dishes">وجبات ايطالية</p>
+      <img src="./imges/italian.jpg" alt="وجبات ايطالية" />
+      <p class="caption">باستا وبيتزا على الطريقة الإيطالية… مع لمسة ELITE 🍝🍕</p>
+
+
+      <button onclick="showItems('italian')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+    <div class="menu-item" data-keywords="ماكولات بحرية seafood">
+      <p data-ar="ماكولات بحرية" data-en="Seafood">ماكولات بحرية</p>
+      <img src="./imges/seafood.jpg" alt="ماكولات بحرية" />
+      <p class="caption">طعم البحر الحقيقي بأطباق ELITE البحرية 🐟🌊</p>
+
+      <button onclick="showItems('seafood')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+
+
+    <div class="menu-item" data-keywords="شوربات soups">
+      <p data-ar="شوربات" data-en="Soups">شوربات</p>
+      <img src="./imges/shorbat.png" alt="شوربات" />
+      <p class="caption">دفا وراحة في كل ملعقة من شوربة ELITE 🍲</p>
+
+      <button onclick="showItems('soups')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+
+
+    <div class="menu-item" data-keywords="سلطات salads">
+      <p data-ar="سلطات" data-en="Salads">سلطات</p>
+      <img src="./imges/salads.jpg" alt="سلطات" />
+      <p class="caption">صحية، طازجة، ومن كل الألوان مع ELITE 🥗</p>
+      <button onclick="showItems('salads')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+
+    <div class="menu-item" data-keywords="مقبلات ساخنة appetizers">
+      <p data-ar="  مقبلات ساخنة وباردة" data-en="Hot Appetizers">مقبلات ساخنة وباردة </p>
+      <img src="./imges/hotAppetizers.jpg" alt="مقبلات ساخنة" />
+      <p class="caption">سخنة، مقرمشة، ومليانة نكهة من مطبخ ELITE 😋🔥</p>
+
+      <button onclick="showItems('hotAppetizers')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع
+        الأصناف</button>
+    </div>
+
+    <div class="menu-item" data-keywords="سندويشات sandwiches">
+      <p data-ar="سندويشات" data-en="Sandwiches">سندويشات</p>
+      <img src="./imges/sandwiches.jpg" alt="سندويشات" />
+      <p class="caption">لفات بتشبع وبترضي كل الأذواق… بس من ELITE 🌯😋</p>
+
+
+      <button onclick="showItems('sandwiches')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+
+    <div class="menu-item" data-keywords="حلويات مثلجات icecream desserts">
+      <p data-ar="حلويات + مثلجات" data-en="Desserts + Ice Cream">حلويات + مثلجات</p>
+      <img src="./imges/desserts.jpg" alt="حلويات" />
+      <p class="caption">لحظات حلوة وسعادة حقيقية مع حلويات ELITE 🍰🍨</p>
+
+      <button onclick="showItems('desserts')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+
+
+    <div class="menu-item" data-keywords="عصائر juices">
+      <p data-ar="عصائر طبيعية" data-en="Natural Juices">عصائر طبيعية</p>
+      <img src="./imges/juices.jpg" alt="عصائر" />
+      <p class="caption">انتعاش طبيعي 100%… مع عصائر ELITE 🍹🍊</p>
+
+      <button onclick="showItems('juices')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+
+
+    <div class="menu-item" data-keywords="مشروبات drinks">
+      <p data-ar="مشروبات" data-en="Beverages">مشروبات</p>
+      <img src="./imges/drinks.jpg" alt="مشروبات" />
+      <p class="caption">مشروبات ELITE… سخنة وباردة، لمزاجك بكل وقت ☕🥤</p>
+
+
+      <button onclick="showItems('drinks')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+
+
+    <div class="menu-item" data-keywords="أراجيل shisha">
+      <p data-ar="أراجيل" data-en="Shisha">أراجيل</p>
+      <img src="./imges/Shisha.webp" alt="أراجيل" />
+      <p class="caption">نكّه يومك بأرجيلة ما بتنتسى من ELITE 😍💨</p>
+      <button onclick="showItems('shisha')" data-ar="عرض جميع الأصناف" data-en="View All">عرض جميع الأصناف</button>
+    </div>
+
+  </section>
+
+  <footer class="social-footer">
+    <h2 data-ar="نتمنى لك تجربة مميزة" data-en="We wish you a great experience">نتمنى لك تجربة مميزة</h2>
+    <img src="./imges/elite-removebg.png" alt="Elite Logo" class="logo">
+
+    <div class="social-section">
+      <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=61571405336647" target="_blank" title="فيسبوك">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/resto_elite/" target="_blank" title="انستغرام">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/970597519023" target="_blank" title="واتساب">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      <p class="social-username">@elite.restocafe</p>
+    </div>
+
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
